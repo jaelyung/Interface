@@ -1,7 +1,6 @@
 package com.human.interfaceEx;
 
 interface Printable{
-	public void a();
 }
 
 class A4 implements Printable{
@@ -11,14 +10,19 @@ class A4 implements Printable{
 }
 
 class B4 implements Printable{
-	public void a() {
+	public void b() {
 		System.out.println("B4");
 	}
 }
 
 class Call{
 	public void invoke(Printable o) {
-		o.a();
+		if(o instanceof A4) {
+			((A4) o).a();
+		}else if(o instanceof B4) {
+			((B4) o).b();
+		}
+		
 	}
 }
 
